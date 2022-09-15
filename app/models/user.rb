@@ -1,17 +1,9 @@
 class User < ApplicationRecord
-  has_many :comments
-  has_many :posts
-  has_many :likes
+  has_many :comments, foreign_key: 'author_id', inverse_of: 'author'
+  has_many :posts, foreign_key: 'author_id', inverse_of: 'author'
+  has_many :likes, foreign_key: 'author_id', inverse_of: 'author'
 
-  def last_post
-    posts.order(created_at: :desc).first
-  end
-
-  def recent_comments
-    comments.order(created_at: :desc).limit(5)
-  end
-
-  def recent_posts
-    posts.order(created_at: :desc).limit(5)
+  def recent_post
+    Post.where(author: self).order(created_at: :desc).first(3)
   end
 end
