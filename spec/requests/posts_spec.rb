@@ -1,36 +1,4 @@
 require 'rails_helper'
-,lmnknm.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 RSpec.describe 'Posts', type: :request do
   before(:each) do
