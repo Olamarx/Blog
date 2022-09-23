@@ -1,30 +1,36 @@
-.main-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.container {
+.main-class {
   width: 50%;
-  border: 3px solid green;
+  margin: auto auto;
+}
+
+.section-class {
   display: flex;
-  gap: 10px;
   justify-content: center;
+  gap: 30px;
+  align-items: center;
 }
 
-.left-post {
-  width: 150px;
-  height: 150px;
-  border: 5px solid blue;
+.article-image {
+  width: 100px;
+  height: 100px;
+  border: 2px dotted blue;
 }
 
-.right-post {
-  width: 700px;
-  height: 150px;
-  border: 5px solid grey;
+.names {
+  display: flex;
+  width: 500px;
+  gap: 80px;
+  height: 90px;
+  justify-content: space-between;
+  border: 2px dotted blue;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
+.names h3 a {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.names p {
+  display: flex;
+  align-items: flex-end;
 }

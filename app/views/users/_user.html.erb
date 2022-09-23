@@ -1,13 +1,13 @@
-<div class="main-container">
-<section class="container">
+<main class="main-class">
     <% @users.each do |user|%>
-    <article class="left-post">
-    <img src=<%= user.photo %> class="image" alt=<%= user.name %>>
+<section class="section-class">
+    <article class="article-image">
+    <img src=<%= user.photo %> class="" alt=<%= user.name %>>
     </article>
-    <article class="right-post">
+    <article class="names">
     <h3><%= link_to user.name, user %></h3>
-    <p> Number of posts: <%= user.posts_counter %></p>
+    <p> <small> Number of posts: <%= user.posts_counter %> </small> </p>
     </article>
-    <% end %>
 </section>
-</div>
+    <% end %>
+</main>
