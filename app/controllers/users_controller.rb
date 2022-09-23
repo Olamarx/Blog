@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = 'All users'
+    @users = User.all
   end
 
   def show
-    @ind_user = 'individual user'
+    @ind_user = User.find(params[:id])
   end
 end

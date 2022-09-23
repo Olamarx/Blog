@@ -1,0 +1,36 @@
+.main-class {
+  width: 50%;
+  margin: auto auto;
+}
+
+.section-class {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+}
+
+.article-image {
+  width: 100px;
+  height: 100px;
+  border: 2px dotted blue;
+}
+
+.names {
+  display: flex;
+  width: 500px;
+  gap: 80px;
+  height: 90px;
+  justify-content: space-between;
+  border: 2px dotted blue;
+}
+
+.names h3 a {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.names p {
+  display: flex;
+  align-items: flex-end;
+}

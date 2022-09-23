@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @posts = 'All content posted'
+    @posts_in_pages = 2
+    @user = User.find(params[:user_id])
+    @page = params.fetch(:page, 1)
+    @posts = @user.posts[2 * (@page.to_i - 1), @posts_in_pages]
   end
 
   def show
-    @ind_post = 'individual content'
+    @ind_post = Post.find(params[:id])
   end
 end

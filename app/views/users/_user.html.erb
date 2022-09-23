@@ -1,0 +1,13 @@
+<main class="main-class">
+    <% @users.each do |user|%>
+<section class="section-class">
+    <article class="article-image">
+    <img src=<%= user.photo %> class="" alt=<%= user.name %>>
+    </article>
+    <article class="names">
+    <h3><%= link_to user.name, user %></h3>
+    <p> <small> Number of posts: <%= user.posts_counter %> </small> </p>
+    </article>
+</section>
+    <% end %>
+</main>

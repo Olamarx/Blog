@@ -1,0 +1,52 @@
+
+
+<main  class="main-class">
+
+<section class="section-class">
+<article class="article-image">
+<img src=<%= @ind_user.photo %> alt=<%= @ind_user.name %> >
+</article>
+
+<article class="names">
+<h3><%= @ind_user.name %></h3>
+<p> <small> Number of posts: <%= @ind_user.posts_counter %> </small> </p>
+</article>
+</section>
+
+<section class="section-for-post">
+<article class="bio-article bio-border">
+<h5>Bio</h5>
+<p><%= @ind_user.bio %></p>
+</article>
+
+<% if @ind_user.recent_posts.size.zero? %>
+<div>
+<p>No post to display at this time</p>
+</div>
+<% else %>
+<% @ind_user.recent_posts.each do |post| %>
+
+<section class="section-for-post">
+<article class="bio-article2">
+
+<h4>
+<%= post.title %>
+</h4>
+<% if post.text.size > 100 %>
+      <p><%= post.text[0, 100] %>...</p>
+<% else %>
+        <p><%= post.text %></p>
+      <% end %>
+<p class="small">
+<small>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
+</p>
+</article>
+</section>
+
+<% end %>
+<button type="button">
+    <%= link_to "See all posts", user_posts_path(@ind_user)%>
+  </button>
+<% end %>
+<section
+</main>
