@@ -1,0 +1,54 @@
+<section>
+<div>
+      <img src=<%= @user.photo %> alt="Picture">
+    </div>
+    <div>
+          <h5><%= @user.name %></h5>
+          <p><small>Number of posts: <%= @user.posts_counter %></small></p>
+        </div>
+        <% @posts.each do |post| %>
+    <div>
+      <h5><%= link_to post.title, user_post_path(@user.id, post.id) %></h5>
+      <% if post.text.size > 50 %>
+      <p><%= post.text[0, 50] %>...</p>
+<% else %>
+        <p><%= post.text %></p>
+      <% end %>
+      <p>
+      <small>Comments:
+      <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small></p>
+      </div>
+<div>
+      <% if post.recent_comments.size.zero? %>
+        <p><small>There are no comments yet</small></p>
+      <% else %>
+        <% post.recent_comments.each do |comment| %>
+          <%= User.find(comment.author_id).name %>: <%= comment.text %><br/>
+        <% end %>
+        <% if post.comments_counter > 5 %>
+          ...
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
+
+<% previous = (@page.to_i - 1) > 0 ? @page.to_i - 1 : 1 %>
+<% limit = (@user.posts_counter + @posts_in_pages - 1) / @posts_in_pages %>
+<% next_page = (@page.to_i + 1) > limit ? limit : @page.to_i + 1 %>
+
+
+<nav>
+  <ul>
+    <li>
+      <%= link_to "Previous", user_posts_path(@user, page: previous) %>
+    </li>
+    <% (1..limit).each do |the_page| %>
+      <li><%= link_to the_page, user_posts_path(@user, page: the_page) %></li>
+    <% end %>
+    <li>
+      <%= link_to "Next", user_posts_path(@user, page: next_page) %>
+    </li>
+  </ul>
+</nav>
+
+</section>
