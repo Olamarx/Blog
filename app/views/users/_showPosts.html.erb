@@ -1,0 +1,31 @@
+<section>
+<div><img src=<%= @ind_user.photo %> alt=src=<%= @ind_user.photo %> ></div>
+<h5>src=<%= @ind_user.name %></h5>
+<p>Number of posts: <%= @ind_user.posts_counter %></p>
+
+<div>
+<h5>Bio</h5>
+<p><%= @ind_user.bio %></p>
+</div>
+
+<% if @ind_user.recent_posts.size.zero? %>
+<div>
+<p>No post to display at this time</p>
+</div>
+<% else %>
+<% @ind_user.recent_posts.each do |post| %>
+<h4>
+<%= post.title %>
+</h4>
+<p>
+<% post.text %>
+</p>
+<p>
+<small>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
+</p>
+<% end %>
+<button type="button">
+    <%= link_to "See all posts", user_posts_path(@ind_user)%>
+  </button>
+<% end %>
+</section>
