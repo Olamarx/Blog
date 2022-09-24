@@ -5,7 +5,6 @@ class LikesController < ApplicationController
     like = Like.new
     like.post = post
     like.author = current_user
-    # id = Post.find(params[:id])
 
     respond_to do |format|
       format.html do

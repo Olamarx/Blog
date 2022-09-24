@@ -5,7 +5,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @page = params.fetch(:page, 1)
     @posts = @user.posts[2 * (@page.to_i - 1), @posts_in_pages]
-    # @post_id = Post.find(params[:post_id], @user.id)
   end
 
   def show
@@ -17,7 +16,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @current_user = current_user 
     respond_to do |format|
-    format.html { render :new, locals: {post: @post }}
+      format.html { render :new, locals: { post: @post } }
     end
   end
 
@@ -26,8 +25,6 @@ class PostsController < ApplicationController
     post.title = params[:user_posts][:title]
     post.text = params[:user_posts][:text]
     post.author = current_user
-    post.comments_counter = 0
-    post.likes_counter = 0
 
     respond_to do |format|
       format.html do

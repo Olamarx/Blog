@@ -1,16 +1,18 @@
 class CommentsController < ApplicationController
   
   def new
+    @post = Post.find(params[:post_id])
+    @user = current_user
     @comment = Comment.new
   end
 
 
   def create
-    post = Post.find(params[:id])
-    user = Post.find(params[:user_id])
-    comment = Comment.new(params.require(:user_post_comments).permit(:text))
-    comment.post = post
-    comment.author = current_user
+    @post = Post.find(params[:id])
+    @user = current_user
+    @comment = Comment.new(params.require(:user_post_comments).permit(:text))
+    @comment.post = @post
+    @comment.author = current_user
 
 
     respond_to do |format|

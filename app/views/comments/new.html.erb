@@ -1,6 +1,6 @@
 <h1> Add New Comment Form </h1>
 
-<%= form_with model: @comments, url: user_post_comments_path, method: :post, local: true, scope: :user_post_comments do |form| %>
+<%= form_with model: @comment, url: user_post_comments_path(@user, @post), method: :post, local: true, scope: :comment do |form| %>
   <div>
     <%= form.text_field :text, placeholder: "Comment text" %>
   </div>
