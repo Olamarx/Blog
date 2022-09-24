@@ -26,16 +26,15 @@
       <% end %>
       <p class=small>
       <small>Comments:
-      <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small></p>
+      <%= post.comments_counter %> Likes: <%= post.likes_counter %></small></p>
       </article>
-
 
       <% if post.recent_comments.size.zero? %>
         <p><small>There are no comments yet</small></p>
       <% else %>
 
         <% post.recent_comments.each do |comment| %>
-          <%= User.find(comment.author_id).name %>: <%= comment.text %><br/>
+          <%= comment.author.name %>: <%= comment.text %><br/>
         <% end %>
         <% if post.comments_counter > 5 %>
           ...
