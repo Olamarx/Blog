@@ -34,3 +34,36 @@
   display: flex;
   align-items: flex-end;
 }
+
+
+.header{
+  margin: auto auto;
+  margin-bottom: 40px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header a{
+  text-decoration: none;
+  font-size: 80px;
+}
+
+.app-form {
+  display: flex;
+  width: 30%;
+  margin: auto auto;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.app-form div input {
+  width: 600px;
+  height: 30px;
+}
+
+.app-form small a {
+  cursor: pointer;
+}

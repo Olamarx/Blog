@@ -1,0 +1,15 @@
+<%= form_with model: @post, url: user_posts_path(@current_user), method: :post, local: true, scope: :user_posts do |form| %>
+ 
+ <section class="app-form">
+  <div>
+    <%= form.text_field :title, placeholder: "Title" %>
+  </div>
+
+  <div>
+    <%= form.text_field :text, placeholder: "Post text" %>
+  </div>
+<small>
+  <%= form.submit %>
+  </small>
+ </section>
+<% end %>
