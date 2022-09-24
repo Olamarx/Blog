@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @current_user = current_user 
+    @current_user = current_user
     respond_to do |format|
       format.html { render :new, locals: { post: @post } }
     end
@@ -38,6 +38,4 @@ class PostsController < ApplicationController
       end
     end
   end
-
-  
 end

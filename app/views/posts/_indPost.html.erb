@@ -9,9 +9,7 @@
 </div>
     <p><%= @ind_post.text %></p>
 
-<%= render partial: "likes/button", locals: {user: @current_user, post: @ind_post} %>
-<%# 
-  <%= render 'likes/button', locals: { @ind_post.id } %>
+<%= render "likes/button" %>
 
 </div>
 <div>

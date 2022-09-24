@@ -1,3 +1,3 @@
-<%= form_with model: Post.new, url: like_create_path(user.id, post.id), method: :post, local: true, class: 'form' do |f| %>
+<%= form_with model: @like, url: user_post_likes_path(@current_user, @ind_post), method: :post, local: true, scope: :like do |f| %>
   <%= f.submit value: 'Like' %>
 <% end %>
