@@ -25,6 +25,11 @@
   border: 2px dotted blue;
 }
 
+.header a {
+  text-decoration: none;
+  font-size: 80px;
+}
+
 .names h3 a {
   font-size: 30px;
   text-decoration: none;
@@ -42,11 +47,6 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-}
-
-.header a {
-  text-decoration: none;
-  font-size: 80px;
 }
 
 .app-form {
