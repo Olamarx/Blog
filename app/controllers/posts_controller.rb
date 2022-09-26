@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @current_user = current_user
-    @posts_in_pages = 2
-    @user = User.find(params[:user_id])
-    @page = params.fetch(:page, 1)
-    @posts = @user.posts[2 * (@page.to_i - 1), @posts_in_pages]
+ 
+      @posts_in_pages = 2
+        @page = params.fetch(:page, 1)
+    @posts = Post.includes(:author).where(author: params[:user_id])
+   @posts =@posts[2 * (@page.to_i - 1), @posts_in_pages]s
   end
 
   def show
