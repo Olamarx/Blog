@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def show
     @current_user = current_user
 
-    @ind_post = Post.find(params[:id])
+    @ind_post = Post.includes(:author, commets:[:author]).find(params[:id])
   end
 
   def new
