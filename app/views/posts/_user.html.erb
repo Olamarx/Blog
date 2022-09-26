@@ -1,12 +1,12 @@
 <main class="main-class">
 <section class="section-class">
       <article class="article-image">
-      <img src=<%= @user.photo %> alt=<%= @user.name %>>
+      <img src=<%= @posts.first.author.photo %> alt=<%= @posts.first.author.name %>>
     </article>
         
         <article class="names">
-          <h3><%= @user.name %></h3>
-          <p><small>Number of posts: <%= @user.posts_counter %></small></p>
+          <h3><%= @posts.first.author.name %></h3>
+          <p><small>Number of posts: <%= @posts.first.author.posts_counter %></small></p>
         </article>
 
 </section>
@@ -18,7 +18,7 @@
     <section class="section-for-post">
 <article class="bio-article2">
 
-      <h4><%= link_to post.title, user_post_path(@user.id, post.id) %></h4>
+      <h4><%= link_to post.title, user_post_path(@posts.first.author.id, post.id) %></h4>
       <% if post.text.size > 100 %>
       <p><%= post.text[0, 100] %>...</p>
 <% else %>
