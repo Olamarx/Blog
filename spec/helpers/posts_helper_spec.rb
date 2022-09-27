@@ -6,8 +6,7 @@ def create_posts_for_user(user, count: 1)
       author: user,
       title: "Post #{p}",
       text: "This is description of post #{p}",
-   
     )
   end
   posts
-ends
+end

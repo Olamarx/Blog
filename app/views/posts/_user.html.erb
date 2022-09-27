@@ -42,23 +42,4 @@
       <% end %>
      </section>
     <% end %>
-
-<% previous = (@page.to_i - 1) > 0 ? @page.to_i - 1 : 1 %>
-<% limit = (@posts.first.author.posts_counter + @posts_in_pages - 1) / @posts_in_pages %>
-<% next_page = (@page.to_i + 1) > limit ? limit : @page.to_i + 1 %>
-
-
-<nav class="navigate">
-  <ul class="ul-navigate">
-    <li>
-      <%= link_to "Previous", user_posts_path(@posts.first.author, page: previous) %>
-    </li>
-    <% (1..limit).each do |the_page| %>
-      <li><%= link_to the_page, user_posts_path(@posts.first.author, page: the_page) %></li>
-    <% end %>
-    <li>
-      <%= link_to "Next", user_posts_path(@posts.first.author, page: next_page) %>
-    </li>
-  </ul>
-</nav>
 </main>

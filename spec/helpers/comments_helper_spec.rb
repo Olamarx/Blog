@@ -6,5 +6,4 @@
      comments << comment
     end
    comments
- 
-   ends
+  end
