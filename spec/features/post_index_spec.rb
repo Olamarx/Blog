@@ -4,14 +4,26 @@ require 'helpers/users_helper_spec.rb'
 require 'helpers/comments_helper_spec.rb'
 
 RSpec.describe 'Post', type: :feature do
-  context 'post index page' do
     before(:each) do
-      @first_user = User.create(name: 'Owoeye', bio: 'Teacher from Poland.', photo: 'https://github.com/masangana/blog/blob/ff0fc0a1396204b7be88769e650aa1a3dfee29b4/app/assets/images/2.jpg')
-        @fir
-@post = Post.create(author: first_user, text: 'Hello World', title: 'Title for Post')
-      @post.save
+    @name = 'user'
+      @user = create_user(@name)
+      @posts = create_posts_for_user(@user, count: 5)
+      @comments = create_comments_by_user(@user, @posts.first, count: 3)
+      visit user_posts_path(@user)
     end
     
+it 'The photo should be seen' do
+    expect(page).to have_css("img[src*='photo-url']")
+end
+it 'The username should be seen' do
+    expect(page).to have_content @name
+end
+it "Should return the corect number of the users posts" do 
+    expect(page).to have_content 'Number of posts: 5'
+    expect(@user.posts_counter).to be 5
+  end
 
-    
-    end
+  it "Show user post\'s title" do
+    expect(page).to have_content @posts.first.title
+  end
+end
