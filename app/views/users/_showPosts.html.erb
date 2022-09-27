@@ -7,7 +7,7 @@
 
 <article class="names">
 <h3><%= @ind_user.name %></h3>
-<p> <small> Number of posts: <%= @ind_user.posts_counter %> </small> </p>
+<p> <small>Number of posts: <%= @ind_user.posts_counter %> </small> </p>
 </article>
 </section>
 
@@ -42,9 +42,7 @@
 </section>
 
 <% end %>
-<button type="button">
     <%= link_to "See all posts", user_posts_path(@ind_user)%>
-  </button>
 <% end %>
 <section
 </main>
