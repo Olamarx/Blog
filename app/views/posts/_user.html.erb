@@ -1,24 +1,20 @@
 <main class="main-class">
 <section class="section-class">
       <article class="article-image">
-      <img src=<%= @user.photo %> alt=<%= @user.name %>>
+      <img src=<%= @posts.first.author.photo %> alt=<%= @posts.first.author.name %>>
     </article>
         
         <article class="names">
-          <h3><%= @user.name %></h3>
-          <p><small>Number of posts: <%= @user.posts_counter %></small></p>
+          <h3><%= @posts.first.author.name %></h3>
+          <p><small>Number of posts: <%= @posts.first.author.posts_counter %></small></p>
         </article>
 
 </section>
-
-
-
-
         <% @posts.each do |post| %>
     <section class="section-for-post">
 <article class="bio-article2">
 
-      <h4><%= link_to post.title, user_post_path(@user.id, post.id) %></h4>
+      <h4><%= link_to post.title, user_post_path(@posts.first.author.id, post.id) %></h4>
       <% if post.text.size > 100 %>
       <p><%= post.text[0, 100] %>...</p>
 <% else %>
@@ -42,23 +38,4 @@
       <% end %>
      </section>
     <% end %>
-
-<% previous = (@page.to_i - 1) > 0 ? @page.to_i - 1 : 1 %>
-<% limit = (@user.posts_counter + @posts_in_pages - 1) / @posts_in_pages %>
-<% next_page = (@page.to_i + 1) > limit ? limit : @page.to_i + 1 %>
-
-
-<nav class="navigate">
-  <ul class="ul-navigate">
-    <li>
-      <%= link_to "Previous", user_posts_path(@user, page: previous) %>
-    </li>
-    <% (1..limit).each do |the_page| %>
-      <li><%= link_to the_page, user_posts_path(@user, page: the_page) %></li>
-    <% end %>
-    <li>
-      <%= link_to "Next", user_posts_path(@user, page: next_page) %>
-    </li>
-  </ul>
-</nav>
 </main>
