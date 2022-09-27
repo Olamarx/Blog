@@ -1,6 +1,6 @@
 require "rails_helper"
 require 'helpers/users_helper_spec'
-
+require 'helpers/posts_helper_spec'
 RSpec.describe "User show page", type: :feature do
    before :each do 
     @name1 = 'user1'
