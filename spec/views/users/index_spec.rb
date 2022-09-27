@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'users_helper_spec'
 
 
 RSpec.describe 'Landing page', type: :feature do
