@@ -5,7 +5,7 @@
     <img src=<%= user.photo %> class="" alt=<%= user.name %>>
     </article>
     <article class="names">
-    <h3><%= link_to user.name, user %></h3>
+    <%= link_to user.name, user %>
     <p> <small> Number of posts: <%= user.posts_counter %> </small> </p>
     </article>
 </section>
