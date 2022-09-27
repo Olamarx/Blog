@@ -1,16 +1,15 @@
 class PostsController < ApplicationController
   def index
-  @posts_in_pages = 2
-  @page = params.fetch(:page, 1)
-  @posts =@posts[2 * (@page.to_i - 1), @posts_in_pages]
-  @posts = Post.includes(:author).where(author: params[:user_id])
-  @current_user = current_user
+    @posts_in_pages = 2
+    @page = params.fetch(:page, 1)
+    @posts = Post.includes(:author).where(author: params[:user_id])
+    @posts = @posts[2 * (@page.to_i - 1), @posts_in_pages]
+    @current_user = current_user
   end
 
   def show
     @current_user = current_user
-
-    @ind_post = Post.includes(:author, commets:[:author]).find(params[:id])
+    @ind_post = Post.find(params[:id])
   end
 
   def new
