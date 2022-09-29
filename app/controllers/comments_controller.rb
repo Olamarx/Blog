@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
@@ -15,7 +14,6 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   def create
     @user = current_user
