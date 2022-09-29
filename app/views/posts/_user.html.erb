@@ -1,12 +1,12 @@
 <main class="main-class">
 <section class="section-class">
       <article class="article-image">
-      <img src=<%= @posts.first.author.photo %> alt=<%= @posts.first.author.name %>>
+      <img src=<%= @user.photo %> alt=<%= @user.name %>>
     </article>
         
         <article class="names">
-          <h3><%= @posts.first.author.name %></h3>
-          <p><small>Number of posts: <%= @posts.first.author.posts_counter %></small></p>
+          <h3><%= @user.name %></h3>
+          <p><small>Number of posts: <%= @user.posts_counter %></small></p>
         </article>
 
 </section>
@@ -35,7 +35,6 @@
       <% if post.recent_comments.size.zero? %>
         <p><small>There are no comments yet</small></p>
       <% else %>
-
         <% post.recent_comments.each do |comment| %>
           <%= comment.author.name %>: <%= comment.text %><br/>
         <% end %>
@@ -45,4 +44,5 @@
       <% end %>
      </section>
     <% end %>
+
 </main>
