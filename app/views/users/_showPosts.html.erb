@@ -44,5 +44,6 @@
 <% end %>
     <%= link_to "See all posts", user_posts_path(@ind_user)%>
 <% end %>
-<section
+<section>
+<%= link_to 'Add post', new_user_post_path(current_user) %>
 </main>
