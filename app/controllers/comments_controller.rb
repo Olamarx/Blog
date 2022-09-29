@@ -5,6 +5,18 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to user_post_url }
+      format.json { head :no_content }
+    end
+  end
+
+
   def create
     @user = current_user
     @post = Post.find(params[:post_id])
