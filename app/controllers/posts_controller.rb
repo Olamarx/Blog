@@ -20,6 +20,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to user_posts_path(params[:user_id])
+  end
+
   def create
     post = Post.new
     post.title = params[:user_posts][:title]
