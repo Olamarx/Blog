@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   def index
     # @posts_in_pages = 2
     # @page = params.fetch(:page, 1)
