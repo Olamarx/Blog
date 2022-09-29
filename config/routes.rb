@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   resources :users, only: %i[index show] do
-    resources :posts, only: %i[index show new create] do
-      resources :comments, only: %i[create new]
-      resources :likes, only: %i[create]
+    resources :posts, only: %i[index show new create destroy] do
+      resources :comments, only: %i[create new destroy]
+      resources :likes, only: %i[create destroy]
     end
   end
   post 'users/:user_id/posts/post_:id/create_like', to: 'likes#create', as: 'like_create'

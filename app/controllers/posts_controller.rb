@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
+  # load_and_authorize_resource
+  # authorize_resource class: false
+
   def index
-    # @posts_in_pages = 2
-    # @page = params.fetch(:page, 1)
-    # @posts =@posts[2 * (@page.to_i - 1), @posts_in_pages]
     @posts = Post.includes(:author).where(author: params[:user_id])
-    @current_user = current_user
+    @user = User.find(params[:user_id])
   end
 
   def show
@@ -18,6 +18,13 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { render :new, locals: { post: @post } }
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to user_posts_path(params[:user_id])
   end
 
   def create
