@@ -17,4 +17,16 @@ Rails.application.routes.draw do
   root 'users#index'
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :users, param: :_user_id
+  post 'api/login', to: 'authentication#login'
+ 
+  namespace :api, defaults: { format: :json } do
+      resources :users, only: %i[index show] do
+        resources :posts, only: %i[index show] do
+          resources :comments, only: %i[index show create]
+        end
+      end
+    
+  end
 end
